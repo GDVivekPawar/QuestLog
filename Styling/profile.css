@@ -1,0 +1,225 @@
+/* profile.css */
+body {
+    margin: 0;
+    overflow: hidden;
+    font-family: 'Orbitron', sans-serif;
+    color: white;
+  }
+
+  body.profile-page {
+    background: url('../Assets/ProfileUI.jpg') no-repeat center center/cover;
+    background-position: center;
+  }
+  
+  .welcome-heading {
+    position: absolute;
+    top: 10px;
+    width: 100%;
+    text-align: center;
+    font-size: 36px;
+    font-family: 'Orbitron', sans-serif;
+    text-shadow: 0 0 10px #0ff;
+    z-index: 2;
+  }
+  
+  
+  .profile-background {
+    background-image: url('../Assets/ProfileUI.jpg'); /* Use first image */
+    background-size: cover;
+    background-position: center;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    z-index: -2;
+  }
+  
+  #loading-screen {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background-color: black;
+    color: white;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    animation: fadeOut 2s ease 2s forwards;
+  }
+  
+  @keyframes fadeOut {
+    to { opacity: 0; visibility: hidden; }
+  }
+
+  .streak-box {
+    position: absolute;
+    top: 50%;
+    right: 30px;
+    transform: translateY(-50%);
+    background: rgba(0, 255, 255, 0.05);
+    border: 1px solid #00f0ff;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    backdrop-filter: blur(4px);
+    box-shadow: 0 0 10px #00f0ff40;
+  }
+  
+  .streak-box .quote {
+    font-size: 1.4rem;
+    color: #00f0ff;
+    margin-bottom: 10px;
+    text-shadow: 0 0 5px #00f0ff;
+    font-family: 'Orbitron', sans-serif;
+  }
+  
+  .streak-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .flame-icon {
+    width: 50px;
+    height: auto;
+    margin-bottom: 10px;
+    animation: flicker 1s infinite ease-in-out;
+  }
+  
+  .streak-text {
+    color: #00f0ff;
+    font-size: 1.2rem;
+    font-family: 'Orbitron', sans-serif;
+    text-shadow: 0 0 4px #00f0ff;
+  }
+  
+  
+  @keyframes flicker {
+    0%   { transform: scale(1) rotate(0deg); }
+    50%  { transform: scale(1.05) rotate(1deg); }
+    100% { transform: scale(1) rotate(-1deg); }
+  }
+  
+  .xp-wrapper {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+  }
+  
+  
+  .left-stats {
+    position: absolute;
+    left: 40px;
+    top: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 40px;
+    z-index: 2;
+    background: rgba(0, 255, 255, 0.1);
+  border: 1px solid #00f0ff;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  backdrop-filter: blur(5px);
+  text-shadow: 0 0 5px #00f0ff;
+  }
+  
+  .top-rank h2 {
+    font-size: 24px;
+    margin: 0;
+    color: #0ff;
+    text-shadow: 0 0 10px #0ff;
+  }
+  
+  .middle-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 18px;
+  }
+
+  .stat-box {
+    background: rgba(0, 255, 255, 0.07);
+    border: 1px solid #00f0ff;
+    padding: 10px 15px;
+    margin: 10px 0;
+    border-radius: 12px;
+    backdrop-filter: blur(4px);
+    color: white;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.1rem;
+    text-shadow: 0 0 4px #00f0ff;
+  }
+  
+  
+  
+  .xp-container {
+    margin-top: 20px;
+    color: #00f0ff;
+    font-weight: bold;
+    text-shadow: 0 0 5px #00f0ff;
+  }
+  
+  .xp-label {
+    margin-left: 5px;
+    font-size: 1.2rem;
+  }
+  
+  .xp-bar {
+    width: 300px;
+    height: 15px;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+    box-shadow: 0 0 5px #00f0ff inset;
+    margin-top: 5px;
+  }
+  
+  .xp-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #00f0ff, #00aaff);
+    box-shadow: 0 0 15px #00f0ff, 0 0 30px #00f0ff;
+    animation: pulseGlow 2s infinite ease-in-out;
+    transition: width 0.5s ease-in-out;
+  }
+  
+  @keyframes pulseGlow {
+    0%   { box-shadow: 0 0 10px #00f0ff; }
+    50%  { box-shadow: 0 0 20px #00aaff; }
+    100% { box-shadow: 0 0 10px #00f0ff; }
+  }
+  
+  
+  
+  .model-container {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    width: 400px;
+    height: 500px;
+    transform: translate(-50%, -50%);
+    z-index: 10; /* Ensure it’s above particles */
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background: rgba(0, 255, 255, 0.1); TEMP: Debug mode */
+    overflow: visible !important;
+  }
+  
+  model-viewer {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    z-index: 10;
+    overflow: visible !important;
+    pointer-events: auto;
+  }
+
+  .hidden {
+    display: none;
+  }
+  
+  
+  

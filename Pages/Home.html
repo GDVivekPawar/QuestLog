@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hunter's HQ</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../Styling/style.css">
+  <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-auth-compat.js"></script>
+</head>
+<body>
+  <div id="loading-screen" class="fullscreen center">
+    <h2>Entering the HQ...</h2>
+    <div class="loader-bar">
+      <div class="loader-fill"></div>
+    </div>
+  </div>
+
+  <canvas id="particles"></canvas>
+
+  <div class="base-container">
+    <div class="top-text">
+      <h1 id="welcome-message">Initializing Hunter Data...</h1>
+      <p id="streak-message">Loading your journey...</p>
+    </div>
+
+    <div class="main-content">
+      <div class="left-side">
+        <img src="../Assets/SungJinWoo.gif" alt="Hero Status" class="hero-gif">
+      </div>
+
+      <div class="center-buttons">
+        <button class="menu-btn" onclick="location.href='Profile.html'">Profile</button>
+        <button class="menu-btn" onclick="location.href='Missions.html'">Missions</button>
+        <button class="menu-btn" onclick="location.href='Shop.html'">Shop</button>
+        <button class="menu-btn" onclick="location.href='Inventory.html'">Inventory</button>
+      </div>
+
+      <div class="right-quote">
+        <p id="random-quote">"System initializing..."</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="../Scripts/script.js"></script>
+  <script src="../Scripts/Particles.js"></script>
+</body>
+</html>

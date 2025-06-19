@@ -1,0 +1,390 @@
+:root {
+    --primary: #00BCD4;         /* Cyan */
+    --primary-dark: #00838F;     /* Darker cyan */
+    --secondary: #1A1A1A;       /* Dark background */
+    --secondary-light: #2d2d2d5a;  /* Slightly lighter dark */
+    --accent: #757575;          /* Medium gray */
+    --accent-light: #BDBDBD;     /* Light gray */
+    --highlight: #FFC107;        /* Amber for accents */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-image: url('../Assets/ShopUI.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center -100px;
+    color: var(--accent-light);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 20px;
+    /* background-color: var(--secondary-light); */
+    border-radius: 8px;
+    border-bottom: 2px solid var(--primary);
+}
+
+header h1 {
+    color: var(--primary);
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    text-shadow: 0 0 5px rgba(0, 188, 212, 0.3);
+}
+
+header p {
+    color: var(--accent-light);
+    font-size: 1.1rem;
+}
+
+.shop-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 25px;
+    padding: 20px;
+}
+
+.card {
+    background-color: var(--secondary-light);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    height: 350px;
+    perspective: 1000px;
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.card.flipped .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-front {
+    background-color: var(--secondary-light);
+}
+
+.card-back {
+    background-color: var(--secondary-light);
+    transform: rotateY(180deg);
+}
+
+.item-image {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 15px;
+    background-color: var(--secondary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid var(--primary);
+    color: var(--primary);
+    font-size: 2.5rem;
+}
+
+.item-name {
+    color: var(--primary);
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.item-description {
+    color: var(--accent-light);
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+.claim-btn {
+    background-color: var(--highlight);
+    color: var(--secondary);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: auto;
+}
+
+.claim-btn:hover {
+    background-color: var(--primary);
+    color: white;
+}
+
+.unlock-condition {
+    background-color: var(--secondary);
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    border-left: 3px solid var(--highlight);
+}
+
+.unlock-condition h3 {
+    color: var(--highlight);
+    margin-bottom: 5px;
+}
+
+.item-bonus {
+    background-color: var(--secondary);
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    border-left: 3px solid var(--primary);
+}
+
+.item-bonus h3 {
+    color: var(--primary);
+    margin-bottom: 5px;
+}
+
+.back-btn {
+    background-color: transparent;
+    color: var(--accent-light);
+    border: 1px solid var(--accent-light);
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: auto;
+}
+
+.back-btn:hover {
+    background-color: var(--accent-light);
+    color: var(--secondary);
+}
+
+/* Add these to your existing styles.css */
+
+/* Shadow Companion Styles */
+.shadow-companion {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 100;
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+}
+
+.companion-image {
+    font-size: 3rem;
+    background-color: var(--secondary-light);
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--highlight);
+    box-shadow: 0 0 15px rgba(0, 188, 212, 0.5);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.companion-image:hover {
+    transform: scale(1.1);
+}
+
+.companion-speech-bubble {
+    background-color: var(--secondary-light);
+    padding: 15px;
+    border-radius: 10px;
+    max-width: 200px;
+    position: relative;
+    border: 1px solid var(--primary);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s;
+}
+
+.companion-speech-bubble::after {
+    content: '';
+    position: absolute;
+    right: -10px;
+    bottom: 15px;
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+    border-left-color: var(--secondary-light);
+    border-right: 0;
+}
+
+.companion-speech-bubble.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Dungeon Rank Filters */
+.dungeon-filters {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.filter-btn {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 20px;
+    background-color: var(--secondary);
+    color: var(--accent-light);
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.filter-btn.active {
+    background-color: var(--primary);
+    color: var(--secondary);
+}
+
+.filter-btn[data-rank="D"] {
+    border: 2px solid #4CAF50; /* Green for D-rank */
+}
+
+.filter-btn[data-rank="C"] {
+    border: 2px solid #2196F3; /* Blue for C-rank */
+}
+
+.filter-btn[data-rank="B"] {
+    border: 2px solid #9C27B0; /* Purple for B-rank */
+}
+
+.filter-btn[data-rank="A"] {
+    border: 2px solid #FF9800; /* Orange for A-rank */
+}
+
+.filter-btn[data-rank="S"] {
+    border: 2px solid #F44336; /* Red for S-rank */
+}
+
+/* Dungeon Rank Card Indicators */
+.rank-D {
+    border-top: 5px solid #4CAF50;
+}
+
+.rank-C {
+    border-top: 5px solid #2196F3;
+}
+
+.rank-B {
+    border-top: 5px solid #9C27B0;
+}
+
+.rank-A {
+    border-top: 5px solid #FF9800;
+}
+
+.rank-S {
+    border-top: 5px solid #F44336;
+    animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        box-shadow: 0 0 5px rgba(244, 67, 54, 0.5);
+    }
+    to {
+        box-shadow: 0 0 20px rgba(244, 67, 54, 0.8);
+    }
+}
+
+/* Particle Effects */
+.particle {
+    position: absolute;
+    background-color: var(--highlight);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+#loading-screen {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background-color: black;
+    color: white;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    animation: fadeOut 2s ease 2s forwards;
+  }
+  
+  #loading-screen h2 {
+    color: var(--primary);
+    font-size: 3rem;
+    margin-bottom: 2px;
+    font-family: 'Eternal';
+    font-weight: 500;
+    transform: translate(370px,-40px);
+  }
+  
+  @keyframes fadeOut {
+    to { opacity: 0; visibility: hidden; }
+  }
+  
+  .loader-bar {
+    width: 60%;
+    height: 12px;
+    background: #222;
+    margin-top: 75px;
+    border-radius: 10px;
+    overflow: hidden;
+    transform: translateX(-200px);
+  }
+  
+  .loader-fill {
+    height: 100%;
+    width: 0%;
+    background: #0ff;
+    animation: fillBar 2s forwards;
+  }
+  
+  @keyframes fillBar {
+    to {
+      width: 100%;
+    }
+  }

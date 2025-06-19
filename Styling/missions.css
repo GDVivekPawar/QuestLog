@@ -1,0 +1,277 @@
+/* Base Styles */
+:root {
+  --primary: #00BCD4;         /* Cyan */
+  --primary-dark: #00838F;     /* Darker cyan */
+  --secondary: #1A1A1A;       /* Dark background */
+  --secondary-light: #2d2d2d79;  /* Slightly lighter dark */
+  --accent: #757575;          /* Medium gray */
+  --accent-light: #BDBDBD;     /* Light gray */
+  --highlight: #FFC107;        /* Amber for accents */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: var(--secondary);
+  color: var(--accent-light);
+  min-height: 100vh;
+  background-image: 
+        url('../Assets/MissionsUI.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  line-height: 1.6;
+}
+
+#loading-screen {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background-color: black;
+  color: white;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  animation: fadeOut 2s ease 2s forwards;
+}
+
+#loading-screen h2 {
+  color: var(--primary);
+  font-size: 3rem;
+  margin-bottom: 2px;
+  font-family: 'Eternal';
+  font-weight: 500;
+  transform: translate(370px,-40px);
+}
+
+@keyframes fadeOut {
+  to { opacity: 0; visibility: hidden; }
+}
+
+.loader-bar {
+  width: 60%;
+  height: 12px;
+  background: #222;
+  margin-top: 75px;
+  border-radius: 10px;
+  overflow: hidden;
+  transform: translateX(-200px);
+}
+
+.loader-fill {
+  height: 100%;
+  width: 0%;
+  background: #0ff;
+  animation: fillBar 2s forwards;
+}
+
+@keyframes fillBar {
+  to {
+    width: 100%;
+  }
+}
+
+.app-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Quest Board */
+.quest-board {
+  /*background-color: rgba(30, 30, 30, 0.85);*/
+  /* border: 1px solid var(--accent); */
+  padding: 30px;
+  border-radius: 4px;
+  position: relative;
+  margin-top: 5px;
+}
+
+.board-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2.5rem;
+  color: var(--primary);
+  text-align: center;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 400;
+}
+
+.warning-notification {
+  border: 3px solid red;
+  background-color: rgba(177, 1, 1, 0.322);
+  color: orangered;
+  padding: 12px;
+  border-radius: 2px;
+  font-weight: 500;
+  text-align: center;
+  max-width: 80%;
+  margin: 0 auto 30px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.rank-display {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.1rem;
+  color: var(--highlight);
+  background: rgba(30, 30, 30, 0.7);
+  padding: 7px 14px;
+  border-radius: 3px;
+  border: 1px solid var(--highlight);
+  letter-spacing: 1px;
+}
+
+.rank-value {
+  color: var(--accent-light);
+  font-weight: 700;
+}
+
+.streak-display {
+  position: absolute;
+  top: 25px;
+  left: 25px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.1rem;
+  color: var(--highlight);
+  background: rgba(30, 30, 30, 0.7);
+  padding: 7px 14px;
+  border-radius: 3px;
+  border: 1px solid var(--highlight);
+  letter-spacing: 1px;
+}
+
+.streak-value {
+  color: var(--accent-light);
+  font-weight: 700;
+}
+
+/* Quest Container */
+.quest-container {
+  padding: 10px 5px;
+}
+
+.quest-section {
+  margin-bottom: 40px;
+}
+
+.quest-section h2 {
+  font-family: 'Orbitron', sans-serif;
+  color: var(--primary);
+  margin-bottom: 20px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--primary-dark);
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+/* Carousel Styles */
+.carousel {
+  display: flex;
+  overflow-x: auto;
+  gap: 20px;
+  padding: 15px 5px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary) #333;
+}
+
+.carousel::-webkit-scrollbar {
+  height: 6px;
+}
+
+.carousel::-webkit-scrollbar-track {
+  background: #333;
+  border-radius: 3px;
+}
+
+.carousel::-webkit-scrollbar-thumb {
+  background-color: var(--primary);
+  border-radius: 3px;
+}
+
+/* Quest Card Styles */
+.quest-card {
+  min-width: 280px;
+  background: var(--secondary-light);
+  border-radius: 4px;
+  padding: 20px;
+  border: 1px solid var(--accent);
+  transition: all 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.quest-card:hover {
+  border-color: var(--primary);
+}
+
+.quest-card h3 {
+  color: var(--primary);
+  font-size: 1.25rem;
+  margin-bottom: 5px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+}
+
+.quest-card p {
+  color: var(--accent-light);
+  line-height: 1.5;
+  flex-grow: 1;
+  font-size: 0.9rem;
+}
+
+.reward {
+  color: var(--highlight);
+  font-weight: 500;
+  font-size: 0.9rem;
+  font-family: 'Roboto', sans-serif;
+}
+
+.complete-btn {
+  background: var(--primary);
+  color: var(--secondary);
+  border: none;
+  padding: 10px;
+  border-radius: 3px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.25s;
+  margin-top: 10px;
+  font-family: 'Roboto', sans-serif;
+  letter-spacing: 0.5px;
+}
+
+.complete-btn:hover {
+  background: var(--primary-dark);
+  color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .board-title {
+    font-size: 2rem;
+  }
+  
+  .rank-display {
+    position: static;
+    display: inline-block;
+    margin: 0 auto 20px;
+    text-align: center;
+  }
+  
+  .quest-card {
+    min-width: 240px;
+  }
+}

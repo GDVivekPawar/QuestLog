@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inventory | Solo Leveling Tracker</title>
+  <link rel="stylesheet" href="../Styling/inventory.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div id="loading-screen" class="fullscreen center">
+    <h2>Fetching Items...</h2>
+    <div class="loader-bar">
+      <div class="loader-fill"></div>
+    </div>
+  </div>
+  <!-- Background Layer -->
+  <div class="background"></div>
+
+  <!-- Main App Container -->
+  <div class="app-container">
+    <!-- Left Side - Inventory -->
+    <section class="inventory-section">
+      <h2 class="section-title neon-text">INVENTORY</h2>
+      <div class="inventory-grid">
+        <!-- Items will be populated by JavaScript -->
+      </div>
+    </section>
+
+    <!-- Right Side - Stats and Skill Tree -->
+    <aside class="right-panel">
+      <!-- Stats Panel (Always Visible) -->
+      <div class="stats-panel neon-border">
+        <h2 class="section-title neon-text">STATS</h2>
+        <ul class="stats-list">
+          <li>STRENGTH: <span class="stat-value">10</span></li>
+          <li>INTELLIGENCE: <span class="stat-value">15</span></li>
+          <li>FOCUS: <span class="stat-value">12</span></li>
+        </ul>
+        <button id="skill-tree-button" class="neon-button">SKILL TREE</button>
+      </div>
+
+      <!-- Skill Tree Panel (Hidden by Default) -->
+      <div class="skill-tree-panel">
+        <h2 class="section-title neon-text">SKILL TREE</h2>
+        <div class="skill-category">
+          <h3 class="skill-header">CODING <span class="xp">(XP: 50/100)</span></h3>
+          <div class="skill-progress">
+            <div class="progress-bar cyan-glow" style="width: 50%"></div>
+          </div>
+          <ul class="skills-list">
+            <li class="skill-item">PYTHON BASICS <span class="level">LV. 2</span></li>
+            <li class="skill-item">WEB DEV <span class="level">LV. 1</span></li>
+          </ul>
+        </div>
+      </div>
+    </aside>
+  </div>
+  
+  <script src="../Scripts/inventory.js"></script>
+</body>
+</html>

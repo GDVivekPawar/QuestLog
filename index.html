@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hunter's HQ</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="Styling/style.css">
+  <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-auth-compat.js"></script>
+</head>
+<body>
+
+  <!-- Intro Animation -->
+  <div id="intro-animation" class="fullscreen center">
+    <div class="typing-container">
+      <h1 class="typing-text"></h1>
+    </div>
+    <div class="pulse-circle"></div>
+  </div>
+
+  <!-- Entry Screen -->
+  <div id="entry-screen" class="fullscreen center hidden">
+    <div class="auth-container">
+      <div class="auth-tabs">
+        <button class="tab-button active" data-tab="login">LOGIN</button>
+        <button class="tab-button" data-tab="signup">NEW HUNTER</button>
+      </div>
+      
+      <!-- Login Form -->
+      <div id="login-form" class="auth-form active">
+        <h2>RETURNING HUNTER</h2>
+        <input type="email" id="login-email" placeholder="Hunter Email" required>
+        <input type="password" id="login-password" placeholder="Access Code" required>
+        <button onclick="handleLogin()">ENTER HQ</button>
+        <p class="auth-link" onclick="showTab('signup')">Not registered? Begin your journey</p>
+        <p id="login-error" class="error-text"></p>
+      </div>
+      
+      <!-- Signup Form -->
+      <div id="signup-form" class="auth-form">
+        <h2>HUNTER REGISTRATION</h2>
+        <input type="email" id="signup-email" placeholder="Hunter Email" required>
+        <input type="password" id="signup-password" placeholder="Create Access Code" required>
+        <button onclick="handleSignup()">BEGIN JOURNEY</button>
+        <p class="auth-link" onclick="showTab('login')">Already registered? Enter HQ</p>
+        <p id="signup-error" class="error-text"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Character Creation -->
+  <div id="character-creation" class="fullscreen center hidden">
+    <h1>CREATE YOUR HUNTER</h1>
+    <div class="class-selection">
+      <div class="class-option" data-class="tank">
+        <div class="class-icon">🛡️</div>
+        <h3>TANK</h3>
+        <p>High defense, perfect for frontline combat</p>
+      </div>
+      <div class="class-option" data-class="hunter">
+        <div class="class-icon">🏹</div>
+        <h3>HUNTER</h3>
+        <p>Balanced stats for versatile gameplay</p>
+      </div>
+      <div class="class-option" data-class="mage">
+        <div class="class-icon">🔮</div>
+        <h3>MAGE</h3>
+        <p>High intelligence for strategic play</p>
+      </div>
+    </div>
+    <input type="text" id="hunter-name" placeholder="Enter your hunter name..." required>
+    <button id="confirm-character">BEGIN HUNT</button>
+  </div>
+
+  <!-- Tutorial -->
+  <div id="tutorial" class="fullscreen center hidden">
+    <div class="tutorial-card">
+      <h2>YOUR HUNTER'S JOURNEY</h2>
+      <div class="tutorial-step active">
+        <h3>1. Complete Missions</h3>
+        <p>Earn XP by completing daily tasks</p>
+      </div>
+      <div class="tutorial-step">
+        <h3>2. Level Up Stats</h3>
+        <p>Upgrade Strength, Intelligence, etc.</p>
+      </div>
+      <div class="tutorial-step">
+        <h3>3. Rank Up</h3>
+        <p>Progress from E to S-Class Hunter</p>
+      </div>
+      <div class="tutorial-nav">
+        <button id="skip-tutorial">SKIP</button>
+        <button id="next-tutorial">NEXT</button>
+      </div>
+    </div>
+  </div>
+  
+  <script src="Scripts/script.js"></script>
+</body>
+</html>

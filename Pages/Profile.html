@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hunter Profile</title>
+  <link rel="stylesheet" href="../Styling/style.css" />
+  <link rel="stylesheet" href="../Styling/profile.css" />
+</head>
+<body class="profile-page">
+
+    <div id="loading-screen" class="fullscreen center">
+        <h2>Checking your status...</h2>
+        <div class="loader-bar">
+          <div class="loader-fill"></div>
+        </div>
+      </div>
+
+  <canvas id="particles"></canvas>
+  <div id="particles-js"></div>
+
+  <h1 class="welcome-heading">Welcome, Hunter</h1>
+
+  <div class="profile-container">
+    <div class="left-stats">
+        <div class="top-rank">
+          <h2>Current Rank: S</h2>
+        </div>
+        <div class="middle-stats">
+            <div class="stat-box">Level: 45</div>
+            <div class="stat-box">HP: 1200</div>
+            <div class="stat-box">Attack: 560</div>
+          <!-- etc -->
+        </div>
+      </div>
+      <div class="xp-wrapper">
+        <div class="xp-container">
+          <span class="xp-label">XP: <span id="xp-text">1200 / 1500</span></span>
+          <div class="xp-bar">
+            <div class="xp-bar-fill" style="width: 80%;" id="xp-fill"></div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="streak-box">
+        <div class="quote">So you up for this?</div>
+        <div class="streak-info">
+          <img src="../Assets/Fire.png" alt="flame" class="flame-icon" id="flame">
+          <span class="streak-text">Streak: <span id="streak-number">0</span> days</span>
+        </div>
+      </div>
+      
+      
+      
+            
+      <div class="model-container hidden" id="modelContainer">
+        <model-viewer
+          src="../Assets/Goku.glb"
+          alt="Goku Model"
+          auto-rotate
+          camera-controls
+          disable-zoom
+          camera-orbit="0deg 80deg auto"
+          min-camera-orbit="auto 80deg auto"
+          max-camera-orbit="auto 80deg auto"
+          style="width: 200px; height: 350px;"
+        ></model-viewer>
+      </div>
+      
+      
+  </div>
+  
+
+  <script type="module" src="../Scripts/Particles.js"></script>
+  <script>
+    // Initialize particlesJS if not already
+    particlesJS.load('particles-js', '../particles-config.json', function () {
+      console.log('Particles.js loaded on Profile page');
+    });
+  </script>
+  <script type="module" src="../Scripts/Profile.js"></script>
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+</body>
+</html>
