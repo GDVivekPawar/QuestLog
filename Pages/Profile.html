@@ -19,34 +19,29 @@
   <canvas id="particles"></canvas>
   <div id="particles-js"></div>
 
-  <h1 class="welcome-heading">Welcome, Hunter</h1>
+  <h1 class="welcome-heading" id="welcome-heading">Loading Hunter Data...</h1>
 
   <div class="profile-container">
     <div class="left-stats">
-        <div class="top-rank">
-          <h2>Current Rank: S</h2>
-        </div>
-        <div class="middle-stats">
-            <div class="stat-box">Level: 45</div>
-            <div class="stat-box">HP: 1200</div>
-            <div class="stat-box">Attack: 560</div>
-          <!-- etc -->
-        </div>
+         <div class="top-rank">
+            <h2 id="rank-text">Calculating Rank...</h2>
+         </div>
+         <div class="middle-stats" id="stats-container"></div>
       </div>
       <div class="xp-wrapper">
-        <div class="xp-container">
-          <span class="xp-label">XP: <span id="xp-text">1200 / 1500</span></span>
-          <div class="xp-bar">
-            <div class="xp-bar-fill" style="width: 80%;" id="xp-fill"></div>
-          </div>
+          <div class="xp-container">
+              <span class="xp-label">XP: <span id="xp-text">0 / 100</span></span>
+              <div class="xp-bar">
+                <div class="xp-bar-fill" style="width: 0%;" id="xp-fill"></div>
+              </div>
+            </div>
         </div>
-      </div>
       
       <div class="streak-box">
-        <div class="quote">So you up for this?</div>
-        <div class="streak-info">
+          <div class="quote">"The only way to grow stronger is to keep moving forward"</div>
+          <div class="streak-info">
           <img src="../Assets/Fire.png" alt="flame" class="flame-icon" id="flame">
-          <span class="streak-text">Streak: <span id="streak-number">0</span> days</span>
+         <span class="streak-text">Streak: <span id="streak-number">0</span> days</span>
         </div>
       </div>
       
@@ -70,15 +65,26 @@
       
   </div>
   
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
 
-  <script type="module" src="../Scripts/Particles.js"></script>
-  <script>
-    // Initialize particlesJS if not already
-    particlesJS.load('particles-js', '../particles-config.json', function () {
-      console.log('Particles.js loaded on Profile page');
-    });
-  </script>
-  <script type="module" src="../Scripts/Profile.js"></script>
+    <script>
+      // Initialize Firebase
+      const firebaseConfig = {
+        apiKey: "AIzaSyCtYHbLYZJf2iVtRWqCv3PLUh82xt7DOF0",
+        authDomain: "solo-leveling-tracker-631dc.firebaseapp.com",
+        projectId: "solo-leveling-tracker-631dc",
+        storageBucket: "solo-leveling-tracker-631dc.appspot.com",
+        messagingSenderId: "816115021177",
+        appId: "1:816115021177:web:4e9b6bca93f190f9e52ba8"
+      };
+  
+      if (!firebase.apps.length) {
+      firebase.initializeApp(firebaseConfig);
+      }
+    </script>
+  <script src="../Scripts/Profile.js"></script>
   <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 </body>
 </html>

@@ -372,3 +372,8 @@ async function updateLoginStreak(userDoc) {
     streak: newStreak
   });
 }
+
+// // ======================
+// // Exports
+// // ======================
+// export { db, auth };
