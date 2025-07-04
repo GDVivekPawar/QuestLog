@@ -17,57 +17,53 @@
       </div>
 
   <canvas id="particles"></canvas>
-  <div id="particles-js"></div>
+  <div id="particles-js" aria-hidden="true"></div>
 
-  <h1 class="welcome-heading" id="welcome-heading">Loading Hunter Data...</h1>
+  <h1 class="welcome-heading" id="welcome-heading" aria-live="polite">Loading Hunter Data...</h1>
 
   <div class="profile-container">
-    <div class="left-stats">
-         <div class="top-rank">
-            <h2 id="rank-text">Calculating Rank...</h2>
-         </div>
-         <div class="middle-stats" id="stats-container"></div>
-      </div>
-      <div class="xp-wrapper">
-          <div class="xp-container">
-              <span class="xp-label">XP: <span id="xp-text">0 / 100</span></span>
-              <div class="xp-bar">
-                <div class="xp-bar-fill" style="width: 0%;" id="xp-fill"></div>
-              </div>
-            </div>
-        </div>
-      
-      <div class="streak-box">
-          <div class="quote">"The only way to grow stronger is to keep moving forward"</div>
-          <div class="streak-info">
-          <img src="../Assets/Fire.png" alt="flame" class="flame-icon" id="flame">
-         <span class="streak-text">Streak: <span id="streak-number">0</span> days</span>
+    <!-- XP Section -->
+    <div class="xp-wrapper">
+      <div class="xp-container">
+        <span class="xp-label">XP: <span id="xp-text">0 / 100</span></span>
+        <div class="xp-bar">
+          <div class="xp-bar-fill" style="--progress: 75%;" id="xp-fill"></div>
         </div>
       </div>
-      
-      
-      
-            
-      <div class="model-container hidden" id="modelContainer">
-        <model-viewer
-          src="../Assets/Goku.glb"
-          alt="Goku Model"
-          auto-rotate
-          camera-controls
-          disable-zoom
-          camera-orbit="0deg 80deg auto"
-          min-camera-orbit="auto 80deg auto"
-          max-camera-orbit="auto 80deg auto"
-          style="width: 200px; height: 350px;"
-        ></model-viewer>
+    </div>
+
+    <!-- Rank Section -->
+    <div class="rank-section">
+      <div class="current-rank">Rank: <span id="rank-text">S</span></div>
+      <div class="rank-progress">Progress to next rank: <span id="rank-progress">75%</span></div>
+    </div>
+
+    <!-- Stats Section -->
+    <div class="stats-section" id="stats-container">
+      <h3>STATS</h3>
+      <div class="stat-item">Strength: <span id="strength">10</span></div>
+      <div class="stat-item">Intelligence: <span id="intelligence">12</span></div>
+      <div class="stat-item">Agility: <span id="agility">8</span></div>
+      <div class="stat-item">Stamina: <span id="stamina">15</span></div>
+    </div>
+
+    <!-- Streak Section -->
+    <div class="streak-box">
+      <div class="quote">"The only way to grow stronger is to keep moving forward"</div>
+      <div class="streak-info">
+        <img src="../Assets/Fire.png" alt="flame" class="flame-icon" id="flame">
+        <span class="streak-text">Streak: <span id="streak-number">0</span> days</span>
       </div>
+    </div>
+      
       
       
   </div>
   
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-auth-compat.js"></script>
 
     <script>
       // Initialize Firebase
